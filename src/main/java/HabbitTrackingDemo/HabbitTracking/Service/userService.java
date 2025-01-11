@@ -81,7 +81,9 @@ public class userService implements IUserService{
 		return "valid";
 	}
 
-	
+	public User getUserById(long id) {
+		return userRepository.findById(id);
+	}
 	
 	
 

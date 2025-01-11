@@ -43,6 +43,11 @@ public class HabbitSelectionService {
     	}
     	return habit;
     }
+    
 
+    public Habit getHabitById(Long id) {
+        return habitRepo.findById(id)
+                .orElseThrow(() -> new RuntimeException("No habit found in database for the provided habit ID"));
+    }
 
 }

@@ -66,7 +66,7 @@ public class UserRegistrationSecurityConfig {
                 .csrf().disable() // Disable CSRF for testing (you can re-enable it in production)
                 .authorizeHttpRequests()
                 .requestMatchers("/register/**", "/users/login","/users/habit","/users/habit/getbycategory",
-                		"/users/habit/habitname").permitAll() 
+                		"/users/habit/habitname","/users/habit/*/select").permitAll() 
                 // Public endpoints
                  .anyRequest().authenticated()  // Restrict all other endpoints
                 .and()

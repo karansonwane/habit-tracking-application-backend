@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import HabbitTrackingDemo.HabbitTracking.Model.Habit;
+import HabbitTrackingDemo.HabbitTracking.Model.SelectedUserHabits;
 import HabbitTrackingDemo.HabbitTracking.enumclasses.HabitType;
 
 @Repository
@@ -20,6 +21,10 @@ public interface HabbitSelectionRepo extends JpaRepository<Habit, Long> {
 	
 	@Query("select h from Habit h where h.name=:habitname")
 	List<Habit> findbyhabitname(@Param("habitname") String habitname);
+	
+	@Query("SELECT h FROM Habit h WHERE h.id = :id")
+    Habit getHabitById(@Param("id") Long id);
+
 	
 }
  
